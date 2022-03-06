@@ -14,7 +14,11 @@ Your word contains n letters: ______
 user input for the first letter guessed
 
 be able to take multiple guesses -> while loop
-implement a strike system -> check if length of incorrect_guesses is >= 6 ?
+implement a strike system -> check if length of incorrect_guesses is <= 6 ?
+
+to figure out length of _______ -> for loop -> not correct
+for len of word
+print(_)
 """
 
 
@@ -28,25 +32,15 @@ WORDS = [
 
 
 correct_guess = set()
-
-
 incorrect_guess = set()
 
 
 word = random.choice(WORDS)
 word_length = len(word)
 print(f'Your word contains {word_length} letters!')
+unique_characters = set(word)
 
-# guess = input('What is your guess?\t')
-# if guess in word:
-#     correct_guess.add(guess)
-#     print('Yes! It is the word!')
-# else:
-#     incorrect_guess.add(guess)
-#     print('Not in word!')
-
-
-while len(incorrect_guess) < 2:  # TODO check if correct word
+while len(incorrect_guess) < 2 and correct_guess != unique_characters:
     guess = input('What is your guess?\t')
     if guess in word:
         correct_guess.add(guess)
